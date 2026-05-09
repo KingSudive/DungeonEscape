@@ -11,7 +11,7 @@ void Player::init()
 	std::cout << "Welcome, " << name << "! You wake up in a dark dungeon...\n\n";
 }
 
-bool Player::hasItem(std::string itemName)
+bool Player::hasItem(const std::string& itemName)
 {
 	for (std::string item : inventory)
 	{

@@ -15,7 +15,7 @@ int main()
 		{"Exit Gate", "A massive iron gate. Freedom is close", "", {1}, false},
 	};
 
-	int currentRoom = 1;
+	int currentRoom = 0;
 	int input;
 	while (currentRoom != 3)
 	{

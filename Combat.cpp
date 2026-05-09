@@ -2,6 +2,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
+
+
+int randomInt(int min, int max)
+{
+	static std::mt19937 rng(std::random_device{}());
+	std::uniform_int_distribution<int> dist(min, max);
+	return dist(rng);
+}
 
 
 bool combat(Player& player, Enemy& enemy)
@@ -23,18 +32,20 @@ bool combat(Player& player, Enemy& enemy)
 		if (input == 1)
 		{
 
-			int attackDamage = player.hasItem("Iron Sword") ? 30 : 20;
-			std::cout << "\n" << player.name << " attacks the enemy!\n\n";
+			int attackDamage = player.hasItem("Iron Sword") ? randomInt(25, 40) : randomInt(15, 25);
+			std::cout << "\n" "You strike for " << attackDamage << " damage!\n\n";
 			enemy.health -= attackDamage;
 
-			std::cout << "The enemy returns the attack!\n\n";
-			player.health -= enemy.damage;
+			int enemyDamage = randomInt(5, enemy.damage);
+			std::cout << "The skeleton hits you for " << enemyDamage << "!\n";
+			player.health -= enemyDamage;
 		}
 
 		else if (input == 2)
 		{
-			std::cout << "The enemy attacks you, but too weak to hurt you ;)\n\n";
-			player.health -= enemy.damage / 2;
+			std::cout << "\nThe enemy attacks you, but too weak to hurt you ;)\n\n";
+			int enemyDamage = randomInt(5, enemy.damage);
+			player.health -= enemyDamage / 2;
 		}
 
 
