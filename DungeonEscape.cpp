@@ -10,9 +10,12 @@ int main()
 
 	std::vector<Room> dungeon = {
 		{"Dark Cell", "A cold, damp cell. There's a door to the north.", "Rusty key", {1}, false},
-		{"Hallway", "A long stone hallway. Doors left and right", "", {0,2,3}, true},
+		{"Hallway", "A long stone hallway. Doors left and right", "", {0, 2, 3, 4, 6}, true},
 		{"Armory", "Old weapons line the walls.", "Iron Sword", {1}, false},
-		{"Exit Gate", "A massive iron gate. Freedom is close", "", {1}, false},
+		{"Exit Gate", "A massive iron gate. Freedom is close", "", {1, 6}, false},
+		{"Guard Room", "A torch-lit room. Bones are scattered across the floor.", "Health Potion", {1, 5}, true},
+		{"Treasure Vault", "Gold glimmers in the dim light. A chest sits in the corner.", "Gold Coint", {4}, false},
+		{"Collapsed Tunnel", "Rubble blocks most of the path. You squeeze through a gap.", "", {1, 3}, false },
 	};
 
 	int currentRoom = 0;
