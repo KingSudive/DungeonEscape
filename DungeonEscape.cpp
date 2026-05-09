@@ -44,6 +44,10 @@ int main()
 		if (dungeon[currentRoom].hasEnemy)
 		{
 			dungeon[currentRoom].hasEnemy = startCombat(player);
+			if (player.health <= 0)
+			{
+				return 0;
+			}
 		}
 		
 	}
